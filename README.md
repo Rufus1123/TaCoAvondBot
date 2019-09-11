@@ -40,7 +40,8 @@
   Example [here](https://stackoverflow.com/a/54773668/9658454)
 
   [e] Add a waterfallstep to ask for the type of pizza, i.e. Salami, Tonno, etc. \
-  **The easy way** \
+  **The easy way** 
+
   - Use a text prompt to store whatever the user types here.
 	
   [Stretch :: Custom validation]
@@ -56,7 +57,8 @@
   HINT: \
   Example [here](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/05.multi-turn-prompt/Dialogs/UserProfileDialog.cs#L136)
 
-  **The not so easy way** \
+  **The not so easy way** 
+
   - Use an adaptive card with images you can click on to select your pizza of
   choice. \
   You can use the card in Cards > PizzaOrderCard.json. Feel free to edit it, or 
@@ -72,7 +74,7 @@
   How to generate a prompt with an adaptive card:
   You can use prompts, but instead of using `MessageFactory.Text` to add an 
   activity to the prompt, use `MessageFactory.Card`. You will need to explicitly
-  cast it to an activity however. \
+  cast it to an activity however. 
   ```
 	var card = CreateAdaptiveCardAttachment();
 	// Cast the IMessageActivity to an Activity before adding it to the prompt.
@@ -81,11 +83,11 @@
     var promptOptions = new PromptOptions { Prompt = prompt };
   ```
 
-  HINT:
+  HINT: \
   How to add the prompt to the dialog:
   Unfortunatly, there is no out-of-the-box support for prompting with adaptive 
   cards yet. We will be using a `TextPrompt` since there is no validation hidden
-  in the framework. \
+  in the framework. 
   ```
 	private const string cardPromptId = "adaptiveCardPrompt";
 
@@ -98,7 +100,8 @@
 	return await stepContext.PromptAsync(cardPromptId, promptOptions, cancellationToken);
   ```
 
-  **The hard way** \
+  **The hard way** 
+
   - Use an adaptive card with a dropdown selection or bullet choices for the 
   pizza type. The card should have images and a submit button. Upon submitting,
   the data filled out in this form is available in the 
@@ -112,11 +115,11 @@
   - Change the pizza type in PizzaDetails.cs to Enums.PizzaType and parse the 
   input into the PizzaDetails object.
 
-  HINT:
+  HINT: \
   How to generate a prompt with an adaptive card:
   You can use prompts, but instead of using `MessageFactory.Text` to add an 
   activity to the prompt, use `MessageFactory.Card`. You will need to explicitly
-  cast it to an activity however. \
+  cast it to an activity however. 
   ```
 	var card = CreateAdaptiveCardAttachment();
 	// Cast the IMessageActivity to an Activity before adding it to the prompt.
@@ -125,11 +128,11 @@
     var promptOptions = new PromptOptions { Prompt = prompt };
   ```
 	
-  HINT:
+  HINT: \
   How to add the prompt to the dialog:
   Unfortunatly, there is no out-of-the-box support for prompting with adaptive 
   cards yet. We will be using a `TextPrompt` since there is no validation hidden
-  in the framework. \
+  in the framework. 
   ```
 	private const string cardPromptId = "adaptiveCardPrompt";
 
@@ -142,8 +145,8 @@
 	return await stepContext.PromptAsync(cardPromptId, promptOptions, cancellationToken);
   ```
 	
-  HINT:
-  How to process the input form: \
+  HINT: \
+  How to process the input form: 
   ```
     var result = stepContext.Context.Activity.Value as JObject;
     var pizzaType = Enum.Parse<PizzaType>(result["pizzaType"].ToString());
