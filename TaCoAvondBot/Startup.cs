@@ -38,9 +38,6 @@ namespace TaCoAvondBot
             // Register LUIS recognizer
             services.AddSingleton<Recognizer>();
 
-            // Register the BookingDialog.
-            services.AddSingleton<TacoDialog>();
-
             // The Dialog that will be run by the bot.
             services.AddSingleton<MainDialog>();
 

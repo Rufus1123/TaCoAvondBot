@@ -18,7 +18,7 @@ namespace TaCoAvondBot.Dialogs
         private readonly Recognizer _luisRecognizer;
 
         // Dependency injection uses this constructor to instantiate MainDialog
-        public MainDialog(Recognizer luisRecognizer, TacoDialog bookingDialog)
+        public MainDialog(Recognizer luisRecognizer)
             : base(nameof(MainDialog))
         {
             _luisRecognizer = luisRecognizer;
@@ -72,10 +72,12 @@ namespace TaCoAvondBot.Dialogs
         {
             var chosenFood = (string)stepContext.Result;
 
-            var response = stepContext.Context.Activity.CreateReply($"Your order has been placed and will be delivered shortly. Enjoy your {chosenFood}.");
-            response.Type = ActivityTypes.EndOfConversation;
+            if (!string.IsNullOrEmpty(chosenFood))
+            {
+                var response = stepContext.Context.Activity.CreateReply($"Your order has been placed and will be delivered shortly. Enjoy your {chosenFood}.");
 
-            await stepContext.Context.SendActivityAsync(response);
+                await stepContext.Context.SendActivityAsync(response);
+            }
 
             return await stepContext.NextAsync();
         }

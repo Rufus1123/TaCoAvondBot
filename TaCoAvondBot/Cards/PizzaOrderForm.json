@@ -71,13 +71,7 @@
   "actions": [
     {
       "type": "Action.Submit",
-      "title": "Submit",
-      "data": {
-        "msteams": {
-          "type": "imBack",
-          "value": "Salami"
-        }
-      }
+      "title": "Submit"
     }
   ]
 }
