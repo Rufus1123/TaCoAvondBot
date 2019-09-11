@@ -1,0 +1,83 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "What pizza do you want?"
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "Image",
+              "url": "https://cdn.pixabay.com/photo/2016/07/10/16/05/pizza-1507939_960_720.png",
+              "horizontalAlignment": "Center",
+              "height": "120px"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Salami",
+              "weight": "Bolder",
+              "horizontalAlignment": "Center"
+            }
+          ],
+          "selectAction": {
+            "type": "Action.Submit"
+          },
+          "id": ""
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "Image",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Eq_it-na_pizza-margherita_sep2005_sml-2.png/800px-Eq_it-na_pizza-margherita_sep2005_sml-2.png",
+              "horizontalAlignment": "Center",
+              "height": "120px"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Margherita",
+              "horizontalAlignment": "Center",
+              "weight": "Bolder"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "pizzaType",
+      "value": "0",
+      "choices": [
+        {
+          "title": "Salami",
+          "value": "0"
+        },
+        {
+          "title": "Margherita",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Submit",
+      "data": {
+        "msteams": {
+          "type": "imBack",
+          "value": "Salami"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+    "name": "TaCoAvondBot",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "075b6e50-bea3-11e9-ba24-3f43ee8dbe39",
+            "name": "http://localhost:3978/api/messages"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "overrides": null,
+    "path": ""
+}
